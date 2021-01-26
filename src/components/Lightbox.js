@@ -41,8 +41,8 @@ const overrides = {
 		'kind': 'Box',
 		'props': {
 			'transition': 'opacity 0.2s ease-out',
-			'max-width': '80%',
-			'max-height': '80vh',
+			'max-width': '90%',
+			'max-height': '90vh',
 			'margin': '0 auto',
 			'min-height': 0,
 			'min-weight': 0
@@ -109,7 +109,7 @@ const LightboxPopup = ({
 			<Box>
 				<Icon onClick={clickButton} {...override('close')} />
 				<Box {...override('content', `overlay-${isOpen ? 'open' : 'close'}`)}>
-					<Image src={imgLinkProp} width="80%" max-height="inherit" margin="0"></Image>
+					<Image src={imgLinkProp} max-width="100%" max-height="inherit" margin="0"></Image>
 					 
 				</Box>
 			</Box>
