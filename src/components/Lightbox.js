@@ -40,7 +40,6 @@ const overrides = {
 	'content': {
 		'kind': 'Box',
 		'props': {
-			'transition': 'opacity .6s ease-out, transform .6s ease-out',
 			'max-width': '90%',
 			'max-height': '90vh',
 			'margin': '0 auto',
@@ -54,7 +53,8 @@ const overrides = {
 			'z-index': 1,
 			'opacity': 1,
 			'visibility': 'visible',
-			'transform': 'scale(1)'
+			'transform': 'scale(1)',
+			'transition': 'opacity .6s ease-out, transform .6s ease-out'
 		}
 	},
 	'content-close': {
@@ -63,7 +63,8 @@ const overrides = {
 			'z-index': -1,
 			'opacity': 0,
 			'visibility': 'hidden',
-			'transform': 'scale(.5)'
+			'transform': 'scale(.5)',
+			'transition': 'opacity .6s ease-out, transform .6s ease-out'
 		}
 	},
 	'close': {
