@@ -1,8 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
-import { Box, Icon, Button } from '@quarkly/widgets';
+import { Box, Icon, Button, Image } from '@quarkly/widgets';
 import { FiX } from "react-icons/fi";
-const duration = '.15s';
 const overrides = {
 	'button': {
 		'kind': 'Button'
@@ -73,21 +72,24 @@ const overrides = {
 			'size': '24px',
 			'color': '#000',
 			'position': 'absolute',
-			'top': '10px',
-			'right': '10px'
+			'top': '15px',
+			'right': '15px',
+			'cursor': 'pointer'
 		}
 	}
 };
 
 const LightboxPopup = ({
 	showPopupProp,
+	imgLinkProp,
 	...props
 }) => {
-	const [isOpen, setOpen] = useState(showPopupProp); // При изменении проспса цвета задаем новый цвет
-
+	const [isOpen, setOpen] = useState(showPopupProp);
 	useEffect(() => {
 		setOpen(showPopupProp);
-	}, [showPopupProp]); // console.log(showPopupProp)
+	}, [showPopupProp]); // useEffect(() => {
+	//     setOpen(imgLinkProp);  
+	// }, [imgLinkProp]); 
 
 	const clickButton = () => {
 		setOpen(!isOpen);
@@ -99,15 +101,15 @@ const LightboxPopup = ({
 		rest
 	} = useOverrides(props, overrides, {});
 	return <Box {...rest}>
-		<Button border="1px solid red" background-color="red" onClick={clickButton}>
-			click
-		</Button>
-		 
+		<Box display='inline-block' onClick={clickButton}>
+			{children}
+			 
+		</Box>
 		<Box onClick={clickButton} {...override('overlay', `overlay-${isOpen ? 'open' : 'close'}`)}>
 			<Box>
 				<Icon onClick={clickButton} {...override('close')} />
 				<Box {...override('content', `overlay-${isOpen ? 'open' : 'close'}`)}>
-					{children}
+					<Image src={imgLinkProp} width="80%" max-height="inherit" margin="0"></Image>
 					 
 				</Box>
 			</Box>
@@ -122,12 +124,21 @@ const propInfo = {
 			ru: 'Показать popup'
 		},
 		control: 'checkbox',
-		category: 'Popup',
+		category: 'Main',
+		weight: 1
+	},
+	imgLinkProp: {
+		title: 'Ссылка на картинку',
+		description: {
+			ru: 'Ссылка на качественную картинку'
+		},
+		control: 'input',
+		category: 'Main',
 		weight: 1
 	}
 };
 const defaultProps = {
-	showPopupProp: true
+	showPopupProp: false
 };
 Object.assign(LightboxPopup, {
 	overrides,

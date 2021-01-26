@@ -1,10 +1,11 @@
 import React from "react";
 import theme from "theme";
-import { Theme, Link, Text, Box, Button, Image } from "@quarkly/widgets";
+import { Theme, Link, Text, Box, Button, Icon, Image } from "@quarkly/widgets";
 import { Helmet } from "react-helmet";
 import { GlobalQuarklyPageStyles } from "global-page-styles";
 import { Section, Override, StackItem, Stack } from "@quarkly/components";
 import * as Components from "components";
+import { MdAssessment } from "react-icons/md";
 export default (() => {
 	return <Theme theme={theme}>
 		<GlobalQuarklyPageStyles pageUrl={"index"} />
@@ -48,11 +49,32 @@ export default (() => {
 			</Button>
 		</Section>
 		<Box height="50px" />
-		<Components.Lightbox text-align="center" showPopup={false} showPopupProp>
+		<Components.Lightbox
+			text-align="center"
+			showPopup={false}
+			showPopupProp={false}
+			imgLinkProp="https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/"
+			display="block"
+		>
 			<Override slot="button" disabled={false} type="button" />
-			<Image width="100%" src="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" height="80vh" />
+			<Button>
+				Кнопка
+			</Button>
 		</Components.Lightbox>
 		<Box height="50px" />
+		<Components.Lightbox text-align="center" showPopupProp={false} imgLinkProp="https://sf-applications.s3.amazonaws.com/Bear/wallpapers/07/oct-2020-wallpaper_iphone-8-plus-1080x1920.png">
+			<Icon
+				category="md"
+				icon={MdAssessment}
+				display="block"
+				text-align="center"
+				size="40px"
+			/>
+		</Components.Lightbox>
+		<Box height="50px" />
+		<Components.Lightbox text-align="center" showPopupProp={false} imgLinkProp="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000">
+			<Image height="300px" src="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" />
+		</Components.Lightbox>
 		<Section background="--color-darkL2" padding="64px 0" sm-padding="40px 0">
 			<Stack>
 				<StackItem width="50%" lg-width="100%">
