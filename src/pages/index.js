@@ -1,9 +1,9 @@
 import React from "react";
 import theme from "theme";
-import { Theme, Link, Strong, Text, Box, Image } from "@quarkly/widgets";
+import { Theme, Link, Text, Box, Button, Image } from "@quarkly/widgets";
 import { Helmet } from "react-helmet";
 import { GlobalQuarklyPageStyles } from "global-page-styles";
-import { Override } from "@quarkly/components";
+import { Section, Override, StackItem, Stack } from "@quarkly/components";
 import * as Components from "components";
 export default (() => {
 	return <Theme theme={theme}>
@@ -15,104 +15,118 @@ export default (() => {
 			<meta name={"description"} content={"Web site created using quarkly.io"} />
 			<link rel={"shortcut icon"} href={"https://uploads.quarkly.io/readme/cra/favicon-32x32.ico"} type={"image/x-icon"} />
 		</Helmet>
-		<Text padding="0px 25px 0px 25px">
-			<br />
-			<br />
-			<br />
-			<br />
-			<Strong
-				data-q-widget-type="PRIMITIVE"
-				overflow-wrap="normal"
-				word-break="normal"
-				white-space="normal"
-				text-indent="0"
-				text-overflow="clip"
-				hyphens="manual"
-			>
-				Lorem Ipsum
-			</Strong>
-			{" "}is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			<br />
-			<br />
-			<br />
-			<br />
-			Why do we use it?
-			<br />
-			<br />
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			Where does it come from?
-			<br />
-			<br />
-			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-			<br />
-			<br />
-			The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			<br />
-			<br />
-			<br />
-			<br />
-			Where can I get some?
-			<br />
-			<br />
-			There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.{"\n\n"}
-		</Text>
+		<Section padding="140px 0" sm-padding="40px 0" background="url(https://images.unsplash.com/photo-1515600051222-a3c338ff16f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) center/cover">
+			<Box max-width="240px" padding="50px 80px 80px 50px" background="--color-light" color="--dark">
+				<Text
+					as="h4"
+					font="--base"
+					color="--grey"
+					letter-spacing="1px"
+					text-transform="uppercase"
+					margin="6px 0"
+				>
+					About me
+				</Text>
+				<Text as="h2" font="--headline2" margin="0 0 12px 0">
+					Hey I’m David
+				</Text>
+				<Text font="--base">
+					My name is David R. Moore, born and raised in France, worked as a professional photographer and videographer for more than 10 years, awarded the CDS Documentary Essay Prize in 2018 and Best Photographer of The Year 2019 by Sony World Photography Awards.
+				</Text>
+			</Box>
+		</Section>
+		<Section padding="100px 0" sm-padding="40px 0">
+			<Override slot="SectionContent" align-items="center" />
+			<Text as="h2" font="--headline1" md-font="--headline2" margin="20px 0 0 0">
+				About Us
+			</Text>
+			<Text as="p" font="--lead" margin="20px 0 0 0">
+				Hi! I'm a paragraph. Click here to add your own text and edit me. It’s a piece of cake. I’m a great space for you to tell a story and let your site visitors know more about you. Talk about your business and what products and services you offer. Share how you came up with the idea for your company and what makes you different from your competitors. Make your business stand out and show your visitors who you are.
+			</Text>
+			<Button font="--lead" margin="20px">
+				Button
+			</Button>
+		</Section>
 		<Box height="50px" />
 		<Components.Lightbox text-align="center" showPopup={false} showPopupProp>
 			<Override slot="button" disabled={false} type="button" />
-			<Image src="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" width="50%" height="100%" />
+			<Image width="100%" src="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" height="80vh" />
 		</Components.Lightbox>
 		<Box height="50px" />
-		<Text padding="0px 25px 0px 25px">
-			<br />
-			<br />
-			<br />
-			<br />
-			<Strong
-				data-q-widget-type="PRIMITIVE"
-				overflow-wrap="normal"
-				word-break="normal"
-				white-space="normal"
-				text-indent="0"
-				text-overflow="clip"
-				hyphens="manual"
-			>
-				Lorem Ipsum
-			</Strong>
-			{" "}is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-			<br />
-			<br />
-			<br />
-			<br />
-			Why do we use it?
-			<br />
-			<br />
-			It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			Where does it come from?
-			<br />
-			<br />
-			Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-			<br />
-			<br />
-			The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-			<br />
-			<br />
-			<br />
-			<br />
-			Where can I get some?
-			<br />
-			<br />
-			There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.{"\n\n"}
-		</Text>
+		<Section background="--color-darkL2" padding="64px 0" sm-padding="40px 0">
+			<Stack>
+				<StackItem width="50%" lg-width="100%">
+					<Override
+						slot="StackItemContent"
+						color="--dark"
+						padding="98px 64px"
+						background="--color-light"
+						flex-direction="column"
+					/>
+					<Text
+						as="h4"
+						margin="12px 0"
+						font="--base"
+						color="--grey"
+						letter-spacing="1px"
+						text-transform="uppercase"
+					>
+						About Zanzibar
+					</Text>
+					<Text as="h2" margin="12px 0" font="--headline2" md-font="--headline3">
+						This is one of the world's greatest cultural crossroads where Africa meets the Indian Ocean.
+					</Text>
+				</StackItem>
+				<StackItem width="50%" lg-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Stack>
+						<StackItem width="100%" lg-width="33.3%" md-width="100%">
+							<Override slot="StackItemContent" padding-bottom="100%" background="url(https://images.unsplash.com/photo-1575999080555-3f7a698dd8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80) center/cover" />
+						</StackItem>
+						<StackItem width="50%" lg-width="33.3%" md-width="50%" sm-width="100%">
+							<Override slot="StackItemContent" padding-bottom="100%" background="url(https://images.unsplash.com/photo-1577315734214-4b3dec92d9ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80) center/cover" />
+						</StackItem>
+						<StackItem width="50%" lg-width="33.3%" md-width="50%" sm-width="100%">
+							<Override slot="StackItemContent" padding-bottom="100%" background="url(https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80) center/cover" />
+						</StackItem>
+					</Stack>
+				</StackItem>
+			</Stack>
+		</Section>
+		<Section padding="64px 0" sm-padding="40px 0" color="--dark">
+			<Text as="h1" font="--headline1" margin="0 0 24px 0">
+				FAQs
+			</Text>
+			<Stack>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						Is there life on Mars?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						Why is the sky blue?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						When will we get there?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+			</Stack>
+		</Section>
 		<Link
 			font={"--capture"}
 			font-size={"10px"}

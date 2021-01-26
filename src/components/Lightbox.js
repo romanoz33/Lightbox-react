@@ -43,6 +43,7 @@ const overrides = {
 		'props': {
 			'transition': 'opacity 0.2s ease-out',
 			'max-width': '80%',
+			'max-width': '80vh',
 			'margin': '0 auto',
 			'min-height': 0,
 			'min-weight': 0
