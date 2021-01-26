@@ -42,7 +42,7 @@ const overrides = {
 		'props': {
 			'transition': 'opacity 0.2s ease-out',
 			'max-width': '80%',
-			'max-width': '80vh',
+			'max-height': '80vh',
 			'margin': '0 auto',
 			'min-height': 0,
 			'min-weight': 0
@@ -101,7 +101,7 @@ const LightboxPopup = ({
 		rest
 	} = useOverrides(props, overrides, {});
 	return <Box {...rest}>
-		<Box display='inline-block' onClick={clickButton}>
+		<Box display='inline-block' cursor='pointer' onClick={clickButton}>
 			{children}
 			 
 		</Box>
