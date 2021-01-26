@@ -52,7 +52,7 @@ export default (() => {
 		<Components.Lightbox
 			text-align="center"
 			showPopup={false}
-			showPopupProp={false}
+			showPopupProp
 			imgLinkProp="https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/"
 			display="block"
 		>
