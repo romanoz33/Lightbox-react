@@ -3,6 +3,7 @@ import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Image } from '@quarkly/widgets';
 import scroll from './Scrollblock';
 import { IoMdCloseCircle } from "react-icons/io";
+import { FaMinusCircle, FaPlusCircle } from "react-icons/fa";
 const overrides = {
 	'Wrapper user element': {
 		'kind': 'Box',
@@ -91,26 +92,29 @@ const overrides = {
 	'Icon zoom': {
 		'kind': 'Icon',
 		'props': {
-			'category': 'fa',
 			'size': '24px',
 			'color': '#fff',
 			'position': 'absolute',
 			'top': '15px',
 			'right': '60px',
 			'cursor': 'pointer',
-			'z-index': '124'
+			'z-index': '124',
+			'category': 'fa',
+			'icon': FaMinusCircle
 		}
 	},
 	'Icon zoom:on': {
 		'kind': 'Icon',
 		'props': {
-			'icon': 'FaPlusCircle'
+			'category': 'fa',
+			'icon': FaPlusCircle
 		}
 	},
 	'Icon zoom:off': {
 		'kind': 'Icon',
 		'props': {
-			'icon': 'FaMinusCircle'
+			'category': 'fa',
+			'icon': FaMinusCircle
 		}
 	}
 };
@@ -153,7 +157,8 @@ const Lightbox = ({
 			 
 		</Box>
 		  
-		<Box onClick={closeLight} {...override('Overlay', `Overlay${isOpen ? ':open' : ':close'}`)}>
+		<Box // onClick={closeLight}
+		{...override('Overlay', `Overlay${isOpen ? ':open' : ':close'}`)}>
 			<Icon onClick={closeLight} {...override('Icon close')} />
 			  
 			<Icon onClick={zoomImage} {...override('Icon zoom', `Icon zoom${isZoom ? ':off' : ':on'}`)} />
