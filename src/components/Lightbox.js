@@ -1,101 +1,145 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useOverrides } from '@quarkly/components';
-import { Box, Icon, Button, Image } from '@quarkly/widgets';
-import { FiX } from "react-icons/fi";
+import { Box, Icon, Image } from '@quarkly/widgets';
+import scroll from './Scrollblock';
+import { IoMdCloseCircle } from "react-icons/io";
 const overrides = {
-	'button': {
-		'kind': 'Button'
+	'Wrapper user element': {
+		'kind': 'Box',
+		'props': {
+			'display': 'inline-block',
+			'cursor': 'pointer'
+		}
 	},
-	'overlay': {
+	'Overlay': {
 		'kind': 'Box',
 		'props': {
 			'display': 'flex',
+			'background': 'rgba(0, 0, 0, .7)',
 			'justify-content': 'center',
 			'align-items': 'center',
 			'position': 'fixed',
 			'bottom': 0,
 			'right': 0,
 			'left': 0,
-			'top': 0,
-			'background': 'rgba(190, 191, 194, 0.8)',
-			'transition': 'opacity 0.2s ease-out'
+			'top': 0
 		}
 	},
-	'overlay-open': {
+	'Overlay:open': {
 		'kind': 'Box',
 		'props': {
-			'z-index': 1,
-			'opacity': 1,
-			'visibility': 'visible'
-		}
-	},
-	'overlay-close': {
-		'kind': 'Box',
-		'props': {
-			'z-index': -1,
-			'opacity': 0,
-			'visibility': 'hidden'
-		}
-	},
-	'content': {
-		'kind': 'Box',
-		'props': {
-			'max-width': '90%',
-			'max-height': '90vh',
-			'margin': '0 auto',
-			'min-height': 0,
-			'min-weight': 0
-		}
-	},
-	'content-open': {
-		'kind': 'Box',
-		'props': {
-			'z-index': 1,
+			'z-index': 123,
 			'opacity': 1,
 			'visibility': 'visible',
-			'transform': 'scale(1)',
-			'transition': 'opacity .6s ease-out, transform .6s ease-out'
+			'transition': 'all .7s ease-out;'
 		}
 	},
-	'content-close': {
+	'Overlay:close': {
 		'kind': 'Box',
 		'props': {
 			'z-index': -1,
 			'opacity': 0,
 			'visibility': 'hidden',
-			'transform': 'scale(.5)',
-			'transition': 'opacity .6s ease-out, transform .6s ease-out'
+			'transition': 'all .7s ease-out;'
 		}
 	},
-	'close': {
+	'Lihgt image': {
+		'kind': 'Image',
+		'props': {
+			'max-width': '90%',
+			'max-height': '90vh',
+			'margin': '0 auto',
+			'min-height': 0,
+			'min-weight': 0,
+			'src': 'http://placehold.it/800'
+		}
+	},
+	'Lihgt image:open': {
+		'kind': 'Image',
+		'props': {
+			'z-index': 123,
+			'opacity': 1,
+			'visibility': 'visible',
+			'transform': 'scale(1)',
+			'transition': 'all .5s ease-out'
+		}
+	},
+	'Lihgt image:close': {
+		'kind': 'Image',
+		'props': {
+			'z-index': -1,
+			'opacity': 0,
+			'visibility': 'hidden',
+			'transform': 'scale(.9)',
+			'transition': 'all .5s ease-out'
+		}
+	},
+	'Icon close': {
 		'kind': 'Icon',
 		'props': {
-			'category': 'fi',
-			'icon': FiX,
-			'size': '24px',
-			'color': '#000',
+			'category': 'io',
+			'icon': IoMdCloseCircle,
+			'size': '30px',
+			'color': '#fff',
 			'position': 'absolute',
 			'top': '15px',
-			'right': '15px',
-			'cursor': 'pointer'
+			'right': '20px',
+			'cursor': 'pointer',
+			'z-index': '124'
+		}
+	},
+	'Icon zoom': {
+		'kind': 'Icon',
+		'props': {
+			'category': 'fa',
+			'size': '24px',
+			'color': '#fff',
+			'position': 'absolute',
+			'top': '15px',
+			'right': '60px',
+			'cursor': 'pointer',
+			'z-index': '124'
+		}
+	},
+	'Icon zoom:on': {
+		'kind': 'Icon',
+		'props': {
+			'icon': 'FaPlusCircle'
+		}
+	},
+	'Icon zoom:off': {
+		'kind': 'Icon',
+		'props': {
+			'icon': 'FaMinusCircle'
 		}
 	}
 };
 
-const LightboxPopup = ({
-	showPopupProp,
-	imgLinkProp,
+const Lightbox = ({
+	showImageProp,
+	offScrollProp,
 	...props
 }) => {
-	const [isOpen, setOpen] = useState(showPopupProp);
+	const [isOpen, setOpen] = useState(showImageProp);
+	const [isZoom, setZoom] = useState(false);
 	useEffect(() => {
-		setOpen(showPopupProp);
-	}, [showPopupProp]); // useEffect(() => {
-	//     setOpen(imgLinkProp);  
-	// }, [imgLinkProp]); 
+		setOpen(showImageProp); // В случае, когда отключаем Lighbox с помощью пропса, убираем блокировку скрола
 
-	const clickButton = () => {
-		setOpen(!isOpen);
+		showImageProp ? '' : !offScrollProp ? scroll.enable() : '';
+	}, [showImageProp]);
+
+	const openLight = () => {
+		setOpen(true);
+		!offScrollProp ? scroll.disable() : '';
+	};
+
+	const closeLight = () => {
+		setOpen(false);
+		!offScrollProp ? scroll.enable() : '';
+	};
+
+	const zoomImage = () => {
+		setZoom(!isZoom);
 	};
 
 	const {
@@ -104,48 +148,49 @@ const LightboxPopup = ({
 		rest
 	} = useOverrides(props, overrides, {});
 	return <Box {...rest}>
-		<Box display='inline-block' cursor='pointer' onClick={clickButton}>
+		<Box {...override('Wrapper user element')} onClick={openLight}>
 			{children}
 			 
 		</Box>
-		<Box onClick={clickButton} {...override('overlay', `overlay-${isOpen ? 'open' : 'close'}`)}>
-			<Box>
-				<Icon onClick={clickButton} {...override('close')} />
-				<Box {...override('content', `overlay-${isOpen ? 'open' : 'close'}`)}>
-					<Image src={imgLinkProp} max-width="100%" max-height="inherit" margin="0"></Image>
-					 
-				</Box>
-			</Box>
+		  
+		<Box onClick={closeLight} {...override('Overlay', `Overlay${isOpen ? ':open' : ':close'}`)}>
+			<Icon onClick={closeLight} {...override('Icon close')} />
+			  
+			<Icon onClick={zoomImage} {...override('Icon zoom', `Icon zoom${isZoom ? ':off' : ':on'}`)} />
+			  
+			<Image {...override('Lihgt image', `Lihgt image${isOpen ? ':open' : ':close'}`)} transform={isZoom ? 'scale(1.3)' : 'scale(1)'} />
+			 
 		</Box>
 	</Box>;
 };
 
 const propInfo = {
-	showPopupProp: {
-		title: 'Показать Popup',
+	showImageProp: {
+		title: 'Показать изображение',
 		description: {
-			ru: 'Показать popup'
+			ru: 'Показать полное изображение'
 		},
 		control: 'checkbox',
 		category: 'Main',
 		weight: 1
 	},
-	imgLinkProp: {
-		title: 'Ссылка на картинку',
+	offScrollProp: {
+		title: 'Отключить скролл',
 		description: {
-			ru: 'Ссылка на качественную картинку'
+			ru: 'Отключить скролл при показе полного изображения'
 		},
-		control: 'input',
+		control: 'checkbox',
 		category: 'Main',
 		weight: 1
 	}
 };
 const defaultProps = {
-	showPopupProp: false
+	showImageProp: false,
+	offScrollProp: false
 };
-Object.assign(LightboxPopup, {
+Object.assign(Lightbox, {
 	overrides,
 	propInfo,
 	defaultProps
 });
-export default LightboxPopup;
+export default Lightbox;

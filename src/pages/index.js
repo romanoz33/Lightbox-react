@@ -1,11 +1,10 @@
 import React from "react";
 import theme from "theme";
-import { Theme, Link, Text, Box, Button, Icon, Image } from "@quarkly/widgets";
+import { Theme, Link, Text, Button, Box } from "@quarkly/widgets";
 import { Helmet } from "react-helmet";
 import { GlobalQuarklyPageStyles } from "global-page-styles";
-import { Section, Override, StackItem, Stack } from "@quarkly/components";
+import { Override, StackItem, Stack, Section } from "@quarkly/components";
 import * as Components from "components";
-import { MdAssessment } from "react-icons/md";
 export default (() => {
 	return <Theme theme={theme}>
 		<GlobalQuarklyPageStyles pageUrl={"index"} />
@@ -16,64 +15,89 @@ export default (() => {
 			<meta name={"description"} content={"Web site created using quarkly.io"} />
 			<link rel={"shortcut icon"} href={"https://uploads.quarkly.io/readme/cra/favicon-32x32.ico"} type={"image/x-icon"} />
 		</Helmet>
-		<Section padding="140px 0" sm-padding="40px 0" background="url(https://images.unsplash.com/photo-1515600051222-a3c338ff16f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) center/cover">
-			<Box max-width="240px" padding="50px 80px 80px 50px" background="--color-light" color="--dark">
-				<Text
-					as="h4"
-					font="--base"
-					color="--grey"
-					letter-spacing="1px"
-					text-transform="uppercase"
-					margin="6px 0"
-				>
-					About me
-				</Text>
-				<Text as="h2" font="--headline2" margin="0 0 12px 0">
-					Hey I’m David
-				</Text>
-				<Text font="--base">
-					My name is David R. Moore, born and raised in France, worked as a professional photographer and videographer for more than 10 years, awarded the CDS Documentary Essay Prize in 2018 and Best Photographer of The Year 2019 by Sony World Photography Awards.
-				</Text>
-			</Box>
-		</Section>
-		<Section padding="100px 0" sm-padding="40px 0">
-			<Override slot="SectionContent" align-items="center" />
-			<Text as="h2" font="--headline1" md-font="--headline2" margin="20px 0 0 0">
-				About Us
+		<Section padding="64px 0" sm-padding="40px 0" color="--dark">
+			<Text as="h1" font="--headline1" margin="0 0 24px 0">
+				FAQs
 			</Text>
-			<Text as="p" font="--lead" margin="20px 0 0 0">
-				Hi! I'm a paragraph. Click here to add your own text and edit me. It’s a piece of cake. I’m a great space for you to tell a story and let your site visitors know more about you. Talk about your business and what products and services you offer. Share how you came up with the idea for your company and what makes you different from your competitors. Make your business stand out and show your visitors who you are.
-			</Text>
-			<Button font="--lead" margin="20px">
-				Button
-			</Button>
+			<Stack>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						Is there life on Mars?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						Why is the sky blue?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+				<StackItem width="33.33%" md-width="100%">
+					<Override slot="StackItemContent" flex-direction="column" />
+					<Text as="h3" font="--headline3" margin="12px 0">
+						When will we get there?
+					</Text>
+					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
+						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
+					</Text>
+				</StackItem>
+			</Stack>
 		</Section>
-		<Box height="50px" />
 		<Components.Lightbox
 			text-align="center"
-			showPopup={false}
+			imgLinkProp="https://images.unsplash.com/photo-1611645993755-b1866793b2a3?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000"
 			showPopupProp={false}
-			imgLinkProp="https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/"
-			display="block"
+			showLightProp
+			showImageProp={false}
+			offScrollProp={false}
 		>
-			<Override slot="button" disabled={false} type="button" />
+			<Override slot="close" />
+			<Override slot="content-image" src="https://images.unsplash.com/photo-1611692817776-f79d53d1cfe5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" />
+			<Override slot="Lihgt-image" src="https://images.unsplash.com/photo-1611702512763-ede5fd71ca92?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" />
+			<Override slot="Lihgt image" src="https://images.unsplash.com/photo-1611785254676-656c99395ac4?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" />
+			<Override slot="Icon close" top="12px" />
+			<Override slot="Icon zoom" />
+			<Section padding="100px 0" sm-padding="40px 0">
+				<Override slot="SectionContent" align-items="center" />
+				<Text as="h2" font="--headline1" md-font="--headline2" margin="20px 0 0 0">
+					About Us
+				</Text>
+				<Text as="p" font="--lead" margin="20px 0 0 0">
+					Hi! I'm a paragraph. Click here to add your own text and edit me. It’s a piece of cake. I’m a great space for you to tell a story and let your site visitors know more about you. Talk about your business and what products and services you offer. Share how you came up with the idea for your company and what makes you different from your competitors. Make your business stand out and show your visitors who you are.
+				</Text>
+				<Button font="--lead" margin="20px">
+					Button
+				</Button>
+			</Section>
+			<Section padding="140px 0" sm-padding="40px 0" background="url(https://images.unsplash.com/photo-1515600051222-a3c338ff16f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80) center/cover">
+				<Box max-width="240px" padding="50px 80px 80px 50px" background="--color-light" color="--dark">
+					<Text
+						as="h4"
+						font="--base"
+						color="--grey"
+						letter-spacing="1px"
+						text-transform="uppercase"
+						margin="6px 0"
+					>
+						About me
+					</Text>
+					<Text as="h2" font="--headline2" margin="0 0 12px 0">
+						Hey I’m David
+					</Text>
+					<Text font="--base">
+						My name is David R. Moore, born and raised in France, worked as a professional photographer and videographer for more than 10 years, awarded the CDS Documentary Essay Prize in 2018 and Best Photographer of The Year 2019 by Sony World Photography Awards.
+					</Text>
+				</Box>
+			</Section>
 			<Button>
-				Кнопка
+				Button
 			</Button>
-		</Components.Lightbox>
-		<Box height="50px" />
-		<Components.Lightbox text-align="center" showPopupProp={false} imgLinkProp="https://sf-applications.s3.amazonaws.com/Bear/wallpapers/07/oct-2020-wallpaper_iphone-8-plus-1080x1920.png">
-			<Icon
-				category="md"
-				icon={MdAssessment}
-				display="block"
-				text-align="center"
-				size="40px"
-			/>
-		</Components.Lightbox>
-		<Box height="50px" />
-		<Components.Lightbox text-align="center" showPopupProp={false} imgLinkProp="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000">
-			<Image height="300px" src="https://images.unsplash.com/photo-1611618951877-1d8d1ccf1899?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&h=2000" />
 		</Components.Lightbox>
 		<Section background="--color-darkL2" padding="64px 0" sm-padding="40px 0">
 			<Stack>
@@ -112,40 +136,6 @@ export default (() => {
 							<Override slot="StackItemContent" padding-bottom="100%" background="url(https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1568&q=80) center/cover" />
 						</StackItem>
 					</Stack>
-				</StackItem>
-			</Stack>
-		</Section>
-		<Section padding="64px 0" sm-padding="40px 0" color="--dark">
-			<Text as="h1" font="--headline1" margin="0 0 24px 0">
-				FAQs
-			</Text>
-			<Stack>
-				<StackItem width="33.33%" md-width="100%">
-					<Override slot="StackItemContent" flex-direction="column" />
-					<Text as="h3" font="--headline3" margin="12px 0">
-						Is there life on Mars?
-					</Text>
-					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
-						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
-					</Text>
-				</StackItem>
-				<StackItem width="33.33%" md-width="100%">
-					<Override slot="StackItemContent" flex-direction="column" />
-					<Text as="h3" font="--headline3" margin="12px 0">
-						Why is the sky blue?
-					</Text>
-					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
-						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
-					</Text>
-				</StackItem>
-				<StackItem width="33.33%" md-width="100%">
-					<Override slot="StackItemContent" flex-direction="column" />
-					<Text as="h3" font="--headline3" margin="12px 0">
-						When will we get there?
-					</Text>
-					<Text as="p" font="--base" margin="12px 0" color="--greyD2">
-						It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.
-					</Text>
 				</StackItem>
 			</Stack>
 		</Section>
